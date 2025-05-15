@@ -9,21 +9,21 @@ const testimonials = [
       "AD Services a transformé notre façade vieillissante en une véritable œuvre d'art. Leur professionnalisme et leur attention aux détails ont dépassé nos attentes.",
     author: "Marie Dupont",
     position: "Propriétaire, Paris",
-    image: "/placeholder.svg?height=100&width=100",
+    image: "/assets/images/female.png?height=100&width=100",
   },
   {
     quote:
       "L'isolation thermique réalisée par AD Services a considérablement amélioré le confort de notre maison et réduit nos factures d'énergie. Une équipe sérieuse et compétente.",
     author: "Jean Martin",
     position: "Propriétaire, Lyon",
-    image: "/placeholder.svg?height=100&width=100",
+    image: "/assets/images/man.jpeg?height=100&width=100",
   },
   {
     quote:
       "Nous avons fait appel à AD Services pour le ravalement complet de notre immeuble. Le résultat est impeccable et les délais ont été respectés. Je recommande vivement.",
     author: "Sophie Leclerc",
     position: "Syndic de copropriété, Marseille",
-    image: "/placeholder.svg?height=100&width=100",
+    image: "/assets/images/female2.png?height=100&width=100",
   },
 ]
 

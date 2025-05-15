@@ -27,7 +27,7 @@ export default function Marquee() {
             <span className="text-7xl sm:text-8xl md:text-9xl font-bold px-4">
               <span
                 style={{
-                  color: isGreen ? "rgb(52, 211, 153)" : "#8B0000",
+                  color: isGreen ? "#b9f02e" : "#8B0000",
                   transition: "color 0.5s ease-in-out",
                 }}
               >
@@ -35,7 +35,7 @@ export default function Marquee() {
               </span>{" "}
               <span
                 style={{
-                  color: isGreen ? "#8B0000" : "rgb(52, 211, 153)",
+                  color: isGreen ? "#8B0000" : "#b9f02e",
                   transition: "color 0.5s ease-in-out",
                 }}
               >
