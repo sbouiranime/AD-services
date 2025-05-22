@@ -53,6 +53,24 @@ const renovationProjects = [
     afterImage: "./assets/images/e2.jpeg?height=600&width=800",
     description: "Démoussage, nettoyage et application d'un traitement hydrofuge sur toiture en tuiles."
   },
+   {
+  "id": 6,
+  "title": "Ravalement de façade en pierre meulière",
+  "location": "Nantes",
+  "beforeImage": "./assets/images/x2.jpg?height=600&width=800",
+  "afterImage": "./assets/images/x1.jpg?height=600&width=800",
+  "description": "Nettoyage en profondeur, rejointoiement des pierres meulières, traitement de la façade et remise en état de l’enduit bas. Mise en valeur des briques apparentes pour une rénovation esthétique et durable."
+},
+
+{
+  "id": 7,
+  "title": "Isolation thermique par l’extérieur (ITE) et ravalement de façade",
+  "location": "Nantes",
+  "beforeImage": "./assets/images/o2.jpg?height=600&width=800",
+  "afterImage": "./assets/images/o1.jpg?height=600&width=800",
+  "description": "Travaux d’isolation thermique par l’extérieur avec finition enduit. Préparation des supports, fixation des panneaux isolants, application d’un enduit de finition et ravalement complet pour un confort thermique amélioré et un rendu esthétique moderne."
+}
+
 ]
 
 export default function BeforeAfterCarousel() {
