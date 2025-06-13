@@ -88,6 +88,7 @@ export default function BeforeAfterCarousel() {
   const [isHovering, setIsHovering] = useState(false)
   const [touchStartX, setTouchStartX] = useState(0)
   const [touchEndX, setTouchEndX] = useState(0)
+  const [isExpanded, setIsExpanded] = useState(false)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
   const nextProject = () => {
@@ -187,7 +188,9 @@ export default function BeforeAfterCarousel() {
         </div>
 
         <div
-          className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-2xl ring-1 ring-gray-200 dark:ring-gray-700"
+          className={`relative overflow-hidden rounded-xl sm:rounded-2xl shadow-2xl ring-1 ring-gray-200 dark:ring-gray-700 transition-all duration-500 ${
+            isExpanded ? 'h-auto' : ''
+          }`}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onTouchStart={handleTouchStart}
@@ -215,7 +218,9 @@ export default function BeforeAfterCarousel() {
             </button>
           </div>
 
-          <div className="flex flex-col md:flex-row h-[500px] sm:h-[600px] lg:h-[650px] w-full bg-gradient-to-r from-gray-900 to-gray-800">
+          <div className={`flex flex-col md:flex-row w-full bg-gradient-to-r from-gray-900 to-gray-800 transition-all duration-500 ${
+            isExpanded ? 'h-auto min-h-[600px]' : 'h-[500px] sm:h-[600px] lg:h-[650px]'
+          }`}>
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={currentIndex + (isBeforeView ? "-before" : "-after")}
@@ -228,7 +233,9 @@ export default function BeforeAfterCarousel() {
                 className="flex flex-col md:flex-row w-full h-full"
               >
                 {/* Content section - stacked on mobile, side-by-side on desktop */}
-                <div className="w-full md:w-1/3 p-4 sm:p-6 lg:p-10 flex items-center bg-gradient-to-br from-gray-900 to-gray-800">
+                <div className={`w-full md:w-1/3 p-4 sm:p-6 lg:p-10 flex items-center bg-gradient-to-br from-gray-900 to-gray-800 transition-all duration-500 ${
+                  isExpanded ? 'min-h-[300px]' : ''
+                }`}>
                   <div className="w-full text-center md:text-left">
                     <span className="text-red-600 font-semibold text-xs sm:text-sm mb-2 sm:mb-3 inline-block uppercase tracking-wider">
                       {currentProject.location}
@@ -237,9 +244,23 @@ export default function BeforeAfterCarousel() {
                       {currentProject.title}
                     </h3>
                     <div className="h-1 w-16 sm:w-24 bg-red-700 mb-4 sm:mb-8 rounded-full mx-auto md:mx-0"></div>
-                    <p className="text-gray-200 text-sm sm:text-base mb-4 sm:mb-8 leading-relaxed line-clamp-3 md:line-clamp-none">
+                    <p className={`text-gray-200 text-sm sm:text-base mb-4 sm:mb-8 leading-relaxed transition-all duration-300 ${
+                      isExpanded ? '' : 'line-clamp-3 md:line-clamp-none'
+                    }`}>
                       {currentProject.description}
                     </p>
+                    
+                    {/* See More button - only visible on mobile when text is long */}
+                    <div className="md:hidden">
+                      {currentProject.description.length > 150 && (
+                        <button
+                          onClick={() => setIsExpanded(!isExpanded)}
+                          className="bg-red-700/20 hover:bg-red-700/30 border border-red-700/50 text-red-400 px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 backdrop-blur-sm"
+                        >
+                          {isExpanded ? 'Voir moins' : 'Voir plus'}
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </div>
 
